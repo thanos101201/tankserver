@@ -9,6 +9,7 @@ const getPlayer = (req, res) => {
             res.status(204).send();
         }
         else{
+            console.log(`Response :- ${resp1}`);
             res.status(200).send({
                 'message': 'Player data is here',
                 'data': resp1
