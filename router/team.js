@@ -21,3 +21,5 @@ router.put('/join', (req, res) => {
 router.put('/name', (req, res) => {
     updateTeam(req, res);
 })
+
+module.exports = router;
