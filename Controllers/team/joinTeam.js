@@ -33,8 +33,16 @@ const joinTeam = (req, res) => {
                     }, {
                         players: ply
                     }).then((resp3) =>{
-                        res.status(200).send({
-                            'message': 'Joined team'
+                        playerModel.updateOne({
+                            email: email
+                        }, {
+                            teamId : id
+                        }).then((resp4) => {
+                            res.status(200).send({
+                                'message': 'Joined team'
+                            });
+                        }).catch((er4) => {
+                            res.status(400).send(er4);
                         });
                     }).catch((er3) => {
                         res.status(400).send(er3);

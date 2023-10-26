@@ -17,6 +17,8 @@ const getTeam = (req, res) =>{
             }).then((resp2) => {
                 res.status(200).send({
                     'message': 'Team data is here',
+                    'name' : resp1[0].name,
+                    'id': id,
                     'data': resp2
                 });
             }).catch((er2) => {
