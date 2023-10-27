@@ -25,28 +25,35 @@ const joinTeam = (req, res) => {
                 }
                 else{
                     let ply = resp2[0].players;
-                    if(ply.indexOf(email) === -1){
-                        ply.push(email);
-                    }
-                    teamModel.updateOne({
-                        _id: id
-                    }, {
-                        players: ply
-                    }).then((resp3) =>{
-                        playerModel.updateOne({
-                            email: email
-                        }, {
-                            teamId : id
-                        }).then((resp4) => {
-                            res.status(200).send({
-                                'message': 'Joined team'
-                            });
-                        }).catch((er4) => {
-                            res.status(400).send(er4);
+                    if(ply.length === 5){
+                        res.status(403).send({
+                            'message': 'Team already full'
                         });
-                    }).catch((er3) => {
-                        res.status(400).send(er3);
-                    })
+                    }
+                    else{
+                        if(ply.indexOf(email) === -1){
+                            ply.push(email);
+                        }
+                        teamModel.updateOne({
+                            _id: id
+                        }, {
+                            players: ply
+                        }).then((resp3) =>{
+                            playerModel.updateOne({
+                                email: email
+                            }, {
+                                teamId : id
+                            }).then((resp4) => {
+                                res.status(200).send({
+                                    'message': 'Joined team'
+                                });
+                            }).catch((er4) => {
+                                res.status(400).send(er4);
+                            });
+                        }).catch((er3) => {
+                            res.status(400).send(er3);
+                        })
+                    }
                 }
             }).catch((er2) => {
                 res.status(400).send(er2);
