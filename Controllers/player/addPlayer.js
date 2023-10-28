@@ -4,8 +4,8 @@ const { google } = require('googleapis');
 const getToken = async (code) => {
     return await axios.post('https://oauth2.googleapis.com/token', {
         code: code,
-        client_id: "611658826728-gp7el8t7t63g46o807c6unjd99tfg4lm.apps.googleusercontent.com",
-        client_secret: "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",
+        client_id: "611658826728-9b0ii06remopbv84a4tshv5j76ksostr.apps.googleusercontent.com",
+        client_secret: "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",
         redirect_uri: "https://tankclient.vercel.app/sign",
         grant_type: "authorization_code"  
     })
