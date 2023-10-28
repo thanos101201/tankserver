@@ -65,7 +65,7 @@ const obtainCalId  = (resp3) => {
 const getMintDt = async (streamId, config) => {
     const fitness = google.fitness('v1');// creating the fitness client object
     const startDate1 = new Date();
-    startDate1.setDate((new Date().getDate()) - 1);
+    startDate1.setDate((new Date().getDate()) - 2);
     console.log(` startdate :- ${startDate1}`);
     // startDate1.setMonth(startDate1.getMonth() -1); // Subtract one month from current date
     const startTimeMillis = startDate1.getTime(); // Get start time in milliseconds
@@ -88,7 +88,7 @@ const getMintDt = async (streamId, config) => {
 
 const getCalorieData = async (config, calId) => {
     const startDate1 = new Date();
-    startDate1.setDate((new Date().getDate()) - 1);
+    startDate1.setDate((new Date().getDate()) - 2);
     // startDate1.setMonth(startDate1.getMonth() -1); // Subtract one month from current date
     const startTimeMillis = startDate1.getTime(); // Get start time in milliseconds
     const endTimeMillis = Date.now();
@@ -109,7 +109,7 @@ const getCalorieData = async (config, calId) => {
 
 const getStepData = async (config, stepId) => {
     const startDate1 = new Date();
-    startDate1.setDate((new Date().getDate()) - 1);
+    startDate1.setDate((new Date().getDate()) - 2);
     // startDate1.setMonth(startDate1.getMonth() -1); // Subtract one month from current date
     const startTimeMillis = startDate1.getTime(); // Get start time in milliseconds
     const endTimeMillis = Date.now();
